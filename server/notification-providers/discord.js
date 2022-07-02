@@ -10,7 +10,7 @@ class Discord extends NotificationProvider {
         let okMsg = "Sent Successfully.";
 
         try {
-            const discordDisplayName = notification.discordUsername || "Uptime Kuma";
+            const discordDisplayName = notification.discordUsername || "Uptime Vlife";
 
             // If heartbeatJSON is null, assume we're testing.
             if (heartbeatJSON == null) {
@@ -46,24 +46,20 @@ class Discord extends NotificationProvider {
                 let discorddowndata = {
                     username: discordDisplayName,
                     embeds: [{
-                        title: "❌ Your service " + monitorJSON["name"] + " went down. ❌",
+                        title: "❌ Le service " + monitorJSON["name"] + " semble hors-ligne. ❌",
                         color: 16711680,
                         timestamp: heartbeatJSON["time"],
                         fields: [
                             {
-                                name: "Service Name",
+                                name: "Nom du service",
                                 value: monitorJSON["name"],
                             },
                             {
-                                name: monitorJSON["type"] === "push" ? "Service Type" : "Service URL",
-                                value: monitorJSON["type"] === "push" ? "Heartbeat" : address,
-                            },
-                            {
-                                name: "Time (UTC)",
+                                name: "Temps (UTC)",
                                 value: heartbeatJSON["time"],
                             },
                             {
-                                name: "Error",
+                                name: "Erreur",
                                 value: heartbeatJSON["msg"],
                             },
                         ],
@@ -81,20 +77,16 @@ class Discord extends NotificationProvider {
                 let discordupdata = {
                     username: discordDisplayName,
                     embeds: [{
-                        title: "✅ Your service " + monitorJSON["name"] + " is up! ✅",
+                        title: "✅ Le service " + monitorJSON["name"] + " est de nouveau en ligne ! ✅",
                         color: 65280,
                         timestamp: heartbeatJSON["time"],
                         fields: [
                             {
-                                name: "Service Name",
+                                name: "Nom du service",
                                 value: monitorJSON["name"],
                             },
                             {
-                                name: monitorJSON["type"] === "push" ? "Service Type" : "Service URL",
-                                value: monitorJSON["type"] === "push" ? "Heartbeat" : address.startsWith("http") ? "[Visit Service](" + address + ")" : address,
-                            },
-                            {
-                                name: "Time (UTC)",
+                                name: "Temps (UTC)",
                                 value: heartbeatJSON["time"],
                             },
                             {
