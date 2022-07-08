@@ -46,7 +46,7 @@ class Discord extends NotificationProvider {
                 let discorddowndata = {
                     username: discordDisplayName,
                     embeds: [{
-                        title: "❌ Le service " + monitorJSON["name"] + " semble hors-ligne. ❌",
+                        title: "❌ Le service " + monitorJSON["name"] + " semble hors-ligne.",
                         color: 16711680,
                         timestamp: heartbeatJSON["time"],
                         fields: [
@@ -73,7 +73,7 @@ class Discord extends NotificationProvider {
                 let discordupdata = {
                     username: discordDisplayName,
                     embeds: [{
-                        title: "✅ Le service " + monitorJSON["name"] + " est de nouveau en ligne ! ✅",
+                        title: "✅ Le service " + monitorJSON["name"] + " est de nouveau en ligne !",
                         color: 65280,
                         timestamp: heartbeatJSON["time"],
                         fields: [
